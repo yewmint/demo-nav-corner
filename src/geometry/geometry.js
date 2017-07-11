@@ -1,3 +1,7 @@
+/**
+ * @author yewmint
+ */
+
 import _ from 'lodash'
 
 /**
@@ -258,7 +262,8 @@ export class Polygon{
     }
 
     /**
-     * @type {Vertex[]} vtxs vertexes of polygon
+     * vertexes of polygon
+     * @type {Vertex[]} vtxs
      */
     this.vtxs = []
 
@@ -268,8 +273,8 @@ export class Polygon{
 
     // assign segOut and segIn for each vertex
     this.vtxs.forEach((vertex, index, arr) =>{
-      nextVertex = arr[(index + 1) % arr.length]
-      prevVertex = arr[(index - 1 + arr.length) % arr.length]
+      let nextVertex = arr[(index + 1) % arr.length]
+      let prevVertex = arr[(index - 1 + arr.length) % arr.length]
       vertex.segOut = new Segment(vertex, nextVertex)
       vertex.segIn = new Segment(prevVertex, vertex)
     })
@@ -347,7 +352,7 @@ export class Polygon{
    * @return {Polygon} polygon with offsets
    */
   offset (x, y){
-    points = []
+    let points = []
     for (let vertex of this.vtxs){
       points.push(vertex.offset(x, y))
     }

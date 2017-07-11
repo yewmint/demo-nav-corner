@@ -2,6 +2,7 @@ import { Vector2, Point } from './geometry'
 
 /**
  * Filed of View object, whose angle must be in (0, 180)
+ * @deprecated
  */
 export class ViewField {
   /**
@@ -50,29 +51,29 @@ export class ViewField {
     return nvecA.add(nvecB)
   }
 
-  /**
-   * determine if this view intersect with another view
-   * @param {ViewField} vf
-   * @return {bool}
-   */
-  intersect (vf){
-    return this.vecA.acuteAngle(vf.vecB) || this.vecB.acuteAngle(vf.vecA)
-  }
-
-  /**
-   * get overlapped field of view of 2 ViewFields
-   * @param {ViewField} vf
-   * @return {ViewField|null}
-   */
-  overlap (vf){
-    if (this.vecA.acuteAngle(vf.vecB) && ){
-      return ViewField.fromVecs(this.vecA, vf.vecB)
-    }
-    else if (this.vecB.acuteAngle(vf.vecA)){
-      return ViewField.fromVecs(this.vecB, vf.vecA)
-    }
-    return null
-  }
+  // /**
+  //  * determine if this view intersect with another view
+  //  * @param {ViewField} vf
+  //  * @return {bool}
+  //  */
+  // intersect (vf){
+  //   return this.vecA.acuteAngle(vf.vecB) || this.vecB.acuteAngle(vf.vecA)
+  // }
+  //
+  // /**
+  //  * get overlapped field of view of 2 ViewFields
+  //  * @param {ViewField} vf
+  //  * @return {ViewField|null}
+  //  */
+  // overlap (vf){
+  //   if (this.vecA.acuteAngle(vf.vecB) && ){
+  //     return ViewField.fromVecs(this.vecA, vf.vecB)
+  //   }
+  //   else if (this.vecB.acuteAngle(vf.vecA)){
+  //     return ViewField.fromVecs(this.vecB, vf.vecA)
+  //   }
+  //   return null
+  // }
 
   /**
    * determine if vf is on left of this ViewField
